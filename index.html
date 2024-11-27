@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>MAGIC OF SVELTE COMPILER</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="dist/reset.css" />
@@ -37,12 +37,323 @@
             <div class="flex items-center gap-10">
               <img width="200px" src="./assets/svelte.png" alt="" />
               <div>
-                <h2 class="!text-white">Magic of svelte compiler</h2>
-                <p class="text-sm">By Mostafa Kheibary</p>
+                <h1 class="!text-white !text-[100px]">
+                  Magic of svelte compiler
+                </h1>
+                <hr />
+                <p class="text-sm text-[#000000b]">
+                  Created by
+                  <span class="text-[#FF3C00] !opacity-100">
+                    Mostafa Kheibary
+                  </span>
+                  | Presented in
+                  <span class="text-[#FF3C00] !opacity-100"> tehlug 2024 </span>
+                </p>
               </div>
             </div>
           </section>
-          <section></section>
+          <section>
+            <h1>
+              So, what exactly is <span class="text-[#FF3C00]"> Svelte </span>?
+            </h1>
+          </section>
+          <section>
+            <h1>Why is it so popular?</h1>
+          </section>
+          <section>
+            <p>
+              Svelte is a JavaScript framework that allows developers to build
+              scalable and modular projects using a component-based system.
+            </p>
+            <p>
+              It’s similar to frameworks like React, Vue, and Angular, but with
+              a key difference: Svelte doesn’t use a virtual DOM or shadow DOM.
+            </p>
+            <span class="text-xl opacity-50">
+              I’ll explain more about this in the presentation.</span
+            >
+          </section>
+          <section>
+            <h2>The Birth of Svelte</h2>
+            <p>Svelte was created 8 years ago on Thanksgiving Day in 2016.</p>
+            <p>
+              Rich Harris was frustrated with traditional frameworks and how
+              they shipped large amounts of JavaScript to the client just to
+              print a simple "Hello, World".
+            </p>
+            <p>
+              On that day, Rich Harris started a project that eventually became
+              Svelte.
+            </p>
+          </section>
+          <section>
+            <h2>Why is Svelte So Popular?</h2>
+            <ul>
+              <li>
+                Svelte is a language that compiled to web components and native
+                code
+              </li>
+              <li>It doesn't use a shadow DOM.</li>
+              <li>Simple and intuitive reactivity system.</li>
+              <li>
+                Produces small JavaScript bundles: Svelte (1.6 KB) vs React (40
+                KB).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <blockquote>
+              <p>
+                "It's best to learn how to use something before you figure out
+                how it works."
+              </p>
+            </blockquote>
+          </section>
+          <section>
+            <img
+              class="!mx-auto"
+              width="400px"
+              src="./assets/successkid.webp"
+              alt=""
+            />
+            <h1 class="!text-[80px]">So, Lets build a simple counter app</h1>
+          </section>
+          <section data-auto-animate>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+              <script>
+                ....
+              </script>
+              
+              <h1>Count : ...</h1>
+              <button>clicks</button>
+					</code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-trim data-line-numbers="2|,4-5">
+              <script>
+                let count = 0 
+
+                const handleIncrement = ()=> {
+                  count++;
+                } 
+              </script>
+              
+              <h1>Count : ...</h1>
+              <button>clicks</button>
+					</code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-trim data-line-numbers="9-10">
+              <script>
+                let count = 0 
+
+                const handleIncrement = ()=> {
+                  count++;
+                } 
+              </script>
+              
+              <h1>Count : {count}</h1>
+              <button on:click={handleIncrement}>clicks</button>
+					</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h4>counter.svelte</h4>
+            <div class="!w-full flex items-center gap-0">
+              <pre
+                data-id="code-animation"
+              ><code class="hljs javascript" data-trim data-trim data-line-numbers>
+              <script>
+                let count = 0 
+
+                const handleIncrement = ()=> {
+                  count++;
+                } 
+              </script>
+              
+              <h1>Count : {count}</h1>
+              <button on:click={handleIncrement}>clicks</button>
+					</code></pre>
+              <img width="300px" src="./assets/counter.gif" alt="" />
+            </div>
+          </section>
+          <section>
+            <h3>How svelte can find out that the count is change to update?</h3>
+          </section>
+          <section>
+            <pre><code class="hljs javascript" data-trim data-trim data-line-numbers>
+              const element = document.createElement('h1')
+              element.textContent = "Hello World"
+              document.body.appendChild(element)
+            </code></pre>
+            <p class="text-xl">It means we can write <>{someValue}</> declaratively and and we don't need to write imperative statements like element.textContent = someValue every time someValue changes. Svelte generates the synchronization code for us.</p>
+          </section>
+   <section>
+    <h2>Svelte Compiler Stages</h2>
+    <ul>
+        <li>1. Parsing JavaScript, CSS, and HTML</li>
+        <li>2. Placing Macros</li>
+        <li>3. Generating the Abstract Syntax Tree (AST)</li>
+        <li>4. Generating Optimized JavaScript Code</li>
+    </ul>
+</section>
+<section>
+    <h5>Stage 1: Parsing JavaScript, HTML, and CSS</h5>
+    <p class="text-xl">The first step in Svelte's compilation process is to parse the different sections of the <code>.svelte</code> file:</p>
+    <ul class="text-xl">
+        <li><strong>JavaScript:</strong> Extracts variables, functions, and reactive statements using <code>acorn</code> or a custom tokenizer.</li>
+        <li><strong>HTML:</strong> Parses the DOM structure (e.g., <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>) using <code>parse5</code> or similar tools.</li>
+        <li><strong>CSS:</strong> Parses styles and ensures they are scoped by using tools like <code>css-tree</code> to tokenize and modify selectors.</li>
+    </ul>
+    <p class="text-xl">Each section is tokenized into an Abstract Syntax Tree (AST), allowing the compiler to analyze and transform it later.</p>
+</section>
+<section data-auto-animate>
+   <h5>Stage 2: Placing Macros for Reactivity</h5>
+    <p class="text-xl">
+        In Svelte, whenever a primitive value is modified (e.g., using <code>=</code>, <code>+=</code>, <code>-=</code>), the compiler inserts macros to ensure the DOM updates automatically.
+    </p>
+              <pre
+                data-id="code-animation"
+              ><code class="hljs javascript" data-trim data-trim data-line-numbers="2,5">
+              <script>
+                let count = 0 
+
+                const handleIncrement = ()=> {
+                  count++;
+                } 
+              </script>
+              
+              <h1>Count : {count}</h1>
+              <button on:click={handleIncrement}>clicks</button>
+					</code></pre>
+</section>
+<section data-auto-animate>
+   <h5>Stage 2: Placing Macros for Reactivity</h5>
+    <p class="text-xl">
+        In Svelte, whenever a primitive value is modified (e.g., using <code>=</code>, <code>+=</code>, <code>-=</code>), the compiler inserts macros to ensure the DOM updates automatically.
+    </p>
+              <pre
+                data-id="code-animation"
+              ><code class="hljs javascript" data-trim data-trim data-line-numbers="2,5">
+              <script>
+                let count = internalState(0) 
+
+                const handleIncrement = ()=> {
+                  setUpdateFunction('count',count+1)
+                } 
+              </script>
+              
+              <h1>Count : {count}</h1>
+              <button on:click={handleIncrement}>clicks</button>
+					</code></pre>
+</section>
+<section data-auto-animate>
+  <h5>Stage 3: Generating the Abstract Syntax Tree (AST)</h5>
+  <img width="500px" src="./assets/ast.png" alt="">
+</section>
+<section data-auto-animate>
+  <h5>Stage 3: Generating the Abstract Syntax Tree (AST)</h5>
+  <img width="500px" src="./assets/ast2.png" alt="">
+</section>
+<section>
+      <h2>Stage 4: Code Generation</h2>
+</section>
+<section>
+               <pre
+                data-id="code-animation"
+              ><code class="hljs javascript !text-sm" data-trim data-trim data-line-numbers="1|5,6|8,9,10|12-19|21-28|30-36|8-10|39-45|">
+  export default function component({ target }) {
+
+
+  // variables are declared for each element and text node:
+  let e0,e1, t1, b2, t3;
+  let c0=0;
+
+  function handleIncrement() {
+    update({ count: c0++ });
+  }
+  return {
+    create() {
+      e0 = document.createElement("h1");
+      e1 = document.createElement("button");
+      t1 = document.createTextNode("Count ");
+      t3 = document.createTextNode("clicks");
+
+      e1.addEventListener("click", handleIncrement);
+    },
+
+    mount() {
+      e0.appendChild(t1);
+      e0.appendChild(b2);
+      e1.appendChild(t3);
+
+      target.append(e0);
+      target.append(e1);
+    },
+
+    update(changes) {
+      // check if name changed
+      if (changes.count) {
+        // update `name` variable and all binding to `name`
+        b2.data = c0 = changes.count;
+      }
+    },
+
+    // called to remove the component from the DOM
+    detach() {
+      e1.removeEventListener("click", handleIncrement);
+      target.removeChild(e0);
+      target.removeChild(e1);
+    },
+  };
+}
+					</code></pre> 
+</section>
+<section>
+  <h5>app.js</h5>
+              <pre
+                data-id="code-animation"
+              ><code class="hljs javascript" data-trim data-trim data-line-numbers>
+import Counter from './counter'
+
+const component = Counter({
+  target: document.body,
+})
+
+component.create()
+
+component.mount()
+					</code></pre>
+</section>
+<section>
+  <h5>After you initiate the root component, every child will fallow this exact pattern and mount their children</h5>
+</section>
+<section>
+  <h5>And thats it</h5>
+  <p class="text-xl">But don't forget we just show you the basics and the svelte compiler have so many feature that is gonna take time to have it in this presentation</p>
+</section>
+<section>
+  <h3>Build your own compiler in js</h3>
+</section>
+<section>
+  <img width="400px" class="!mx-auto" src="./assets/obama.jpg" alt="">
+</section>
+<section>
+  <h3>
+    Contact me :)
+  </h3>
+  <ul class="text-2xl">
+    <li>linkedin : mostafa kheibary</li>
+    <li>twitter : mosii_kh</li>
+  </ul>
+</section>
+
+
         </section>
       </div>
     </div>
