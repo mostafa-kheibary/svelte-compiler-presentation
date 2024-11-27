@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/blood.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="fixed left-5 top-5 flex items-center gap-5">
+        <img
+          width="50px"
+          class="rounded-lg !m-0"
+          src="./assets/tehlug.png"
+          alt=""
+        />
+        <div>
+          <p class="text-xl !font-bold !m-0">Tehran linux user group</p>
+          <p class="text-base !font-thin !m-0">27 November 2024</p>
+        </div>
+      </div>
+      <div class="slides">
+        <section>
+          <section>
+            <div class="flex items-center gap-10">
+              <img width="200px" src="./assets/svelte.png" alt="" />
+              <div>
+                <h2 class="!text-white">Magic of svelte compiler</h2>
+                <p class="text-sm">By Mostafa Kheibary</p>
+              </div>
+            </div>
+          </section>
+          <section></section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
